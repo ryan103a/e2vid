@@ -8,22 +8,39 @@ timers = {}
 
 
 class CudaTimer:
+    # Cuda timers don't work with cpu
+    
+    # def __init__(self, timer_name=''):
+    #     self.timer_name = timer_name
+    #     if self.timer_name not in cuda_timers:
+    #         cuda_timers[self.timer_name] = []
+
+    #     self.start = torch.cuda.Event(enable_timing=True)
+    #     self.end = torch.cuda.Event(enable_timing=True)
+
+    # def __enter__(self):
+    #     self.start.record()
+    #     return self
+
+    # def __exit__(self, *args):
+    #     self.end.record()
+    #     torch.cuda.synchronize()
+    #     cuda_timers[self.timer_name].append(self.start.elapsed_time(self.end))
+
     def __init__(self, timer_name=''):
         self.timer_name = timer_name
-        if self.timer_name not in cuda_timers:
-            cuda_timers[self.timer_name] = []
-
-        self.start = torch.cuda.Event(enable_timing=True)
-        self.end = torch.cuda.Event(enable_timing=True)
+        if self.timer_name not in timers:
+            timers[self.timer_name] = []
 
     def __enter__(self):
-        self.start.record()
+        self.start = time.time()
         return self
 
     def __exit__(self, *args):
-        self.end.record()
-        torch.cuda.synchronize()
-        cuda_timers[self.timer_name].append(self.start.elapsed_time(self.end))
+        self.end = time.time()
+        self.interval = self.end - self.start  # measured in seconds
+        self.interval *= 1000.0  # convert to milliseconds
+        timers[self.timer_name].append(self.interval)
 
 
 class Timer:
