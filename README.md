@@ -35,19 +35,11 @@ Dependencies:
 - [NumPy](https://www.numpy.org/)
 - [Pandas](https://pandas.pydata.org/)
 - [OpenCV](https://opencv.org/)
+- SciPy
 
-### Install with Anaconda
+### Install with Pip
 
-The installation requires [Anaconda3](https://www.anaconda.com/distribution/).
-You can create a new Anaconda environment with the required dependencies as follows (make sure to adapt the CUDA toolkit version according to your setup):
-
-```bash
-conda create -n E2VID
-conda activate E2VID
-conda install pytorch torchvision cudatoolkit=10.0 -c pytorch
-conda install pandas
-conda install -c conda-forge opencv
-```
+Install with Pip using a python virtual environment to manage package versions.
 
 ## Run
 
