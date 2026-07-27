@@ -43,11 +43,7 @@ Install with Pip using a python virtual environment to manage package versions.
 
 ## Run
 
-- Download the pretrained model:
-
-```bash
-wget "http://rpg.ifi.uzh.ch/data/E2VID/models/E2VID_lightweight.pth.tar" -O pretrained/E2VID_lightweight.pth.tar
-```
+- Download the pretrained FireNet model, find it on the github page [here](https://github.com/tylerchen007/firenet-pdavis).
 
 - Download an example file with event data:
 
@@ -65,7 +61,7 @@ source .venv/bin/activate
 
 ```bash
 python run_reconstruction.py \
-  -c pretrained/E2VID_lightweight.pth.tar \
+  -c pretrained/firenet_1000.pth.tar \
   -i data/dynamic_6dof.zip \
   --auto_hdr \
   --display \
