@@ -58,7 +58,7 @@ wget "http://rpg.ifi.uzh.ch/data/E2VID/datasets/ECD_IJRR17/dynamic_6dof.zip" -O 
 Before running the reconstruction, make sure the conda environment is sourced:
 
 ```bash
-conda activate E2VID
+source .venv/bin/activate
 ```
 
 - Run reconstruction:
