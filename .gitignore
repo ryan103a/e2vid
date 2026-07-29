@@ -1,6 +1,6 @@
-data/
+data/*
 __pycache__/
-pretrained/
+pretrained/*
 tmp/
-reconstruction/
+reconstructions/*
 .venv/
